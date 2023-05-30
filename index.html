@@ -96,17 +96,6 @@
         z-index: 2;
       }
 	  
-	          #videoContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        #videoPlayer {
-            width: 100vw;
-            height: 100vh;
-        }
     
   </style>
   
@@ -156,28 +145,7 @@
   };
 }
   </script>
-	
-	
-	//randm yt vide
-    <script>
-        function generateRandomId(length) {
-            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var id = "";
-            for (var i = 0; i < length; i++) {
-                id += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return id;
-        }
 
-        function playRandomVideo() {
-            var randomVideoId = generateRandomId(11);
-
-            var videoPlayer = document.getElementById("videoPlayer");
-            videoPlayer.src = "https://www.youtube.com/embed/" + randomVideoId + "?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1";
-        }
-
-        window.addEventListener('DOMContentLoaded', playRandomVideo);
-    </script>
   
   //website challege
 	<script type="text/javascript">
