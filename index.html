@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DKG</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+  
+    /* CSS to set initial opacity of image to 0 */
+    #myImage {
+      opacity: 0;
+      position: absolute;
+      box-sizing: border-box;
+      padding: 0;
+      border: none;
+	    z-index: 99998;
+    }
+    
+    /* CSS to remove margin and padding from the body element */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+	
+			.fixed-image {
+			position: fixed;
+			top: 100%;
+			left: 0%;
+			transform: translate(0%, -96%);
+			z-index: 999;
+			width: 10%;
+			height: auto;
+		}
+		
+					.fixed-image2 {
+			position: fixed;
+			top: 100%;
+			left: 0%;
+			transform: translate(114.5%, -96%);
+			z-index: 999;
+			width: 8.7%;
+			height: auto;
+		}
+		
+		
+  .overlay {
+        position: absolute;
+        top: 0px;
+        left: 1000px;
+        z-index: 2;
+      }
+
+      .overlay2 {
+        position: absolute;
+        top: 0px;
+        left: 1000px;
+        z-index: 2;
+      }
+
+      .overlay3 {
+        position: absolute;
+        top: -100px;
+        left: 0px;
+        z-index: 2;
+      }
+
+      .overlay4 {
+        position: absolute;
+        top: -100px;
+        left: 600px;
+        z-index: 2;
+      }
+
+
+
+    .overlay5 {
+        position: absolute;
+        top: 350px;
+        left: 800px;
+        z-index: 2;
+      }
+	  
+	   .overlay6 {
+        position: absolute;
+        top: 200px;
+        left: 800px;
+        z-index: 2;
+      }
+	  
+	  .overlay7 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+      }
+    
+  </style>
+  
+  
+  //image clicker
+  <script>
+   function teleportAndFadeOutImage(event) {
+  // Create an image element
+  var img = document.createElement("img");
+  
+  // Set the image source and attributes
+  img.setAttribute("src", "hit.png");
+  img.setAttribute("id", "myImage");
+  img.style.width = "50px";
+  img.style.height = "50px";
+  
+  // Get the mouse position, adjusted for the page scroll position
+  var mouseX = event.clientX + window.scrollX;
+  var mouseY = event.clientY + window.scrollY;
+  
+  // Append the image element to the body
+  document.body.appendChild(img);
+  
+  // Wait for the image to load before we can calculate its size and position
+  img.onload = function() {
+    // Calculate the position of the image so that its center is at the mouse position
+    var imgTop = mouseY - img.offsetHeight/2;
+    var imgLeft = mouseX - img.offsetWidth/2;
+    
+    // Set the position of the image
+    img.style.top = imgTop + "px";
+    img.style.left = imgLeft + "px";
+    
+    // Set up a loop to gradually decrease the opacity of the image
+    var fadeEffect = setInterval(function () {
+      if (!img.style.opacity) {
+        img.style.opacity = 1;
+      }
+      if (img.style.opacity > 0) {
+        img.style.opacity -= 0.2;
+      } else {
+        clearInterval(fadeEffect);
+        // Remove the image element from the body
+        document.body.removeChild(img);
+      }
+    }, 50);
+  };
+}
+  </script>
+  
+  //website challege
+	<script type="text/javascript">
+		function generateAndTestURL() {
+			// Define a list of words
+			var words = ["cs", "hax", "csgo", "cs16", "minecraft", "spleef", "hop", "free", "dl", "client", "spoof", "account", "seige", "unknown", "undetected", "detected", "noob", "newb", "potato", "pro", "dll", "injector", "inject", "protect", "mp3", "mp4", "yt", "lc", "p4", "p3", "installer", "install", "visual", "geometry", "dash", "sc", "ratch", "valorant", "bot", "lucky", "snap", "chat", "insta", "gram", "win", "ject", "ghost", "vape", "weed", "juice", "gas", "bongs", "bong", "drugs", "drug", "DMT", "shop", "store", "terraria", "mods", "1", "2", "3", "4", "5", "6", "7", "8", "9", "mod", "modded", "modder", "nuke", "torrent", "pirate", "pirated", "soap", "tv", "tele", "TF2", "scope", "view", "anime", "manga", "stream", "streaming", "1g", "Killing", "yourself", "by", "accident", "with", "your", "very", "own", "molotov", "at", "the", "end", "of", "a", "match", "making", "team", "lose", "Just", "as", "Summit1g", "did", "it", "in", "professional", "DreamHack", "2016", "ADS", "Aiming", "Down", "Sight", "looking", "down", "scope", "weapon", "Aimbot", "A", "hack", "that", "aims", "an", "enemy", "player", "for", "you", "Aimpunch", "The", "aim", "movement", "on", "character", "when", "they", "are", "hit", "bullet", "have", "no", "armor", "Auto", "Shotty", "Nickname", "automatic", "XM", "1014", "Shotgun", "Sniper", "both", "G3SG1", "and", "Scar", "20", "Bait", "Using", "or", "someone", "else", "to", "get", "attention", "OR", "players", "come", "purpose", "while", "using", "location", "advantage", "Boost", "Letting", "stand", "head", "usually", "give", "them", "better", "angle", "higher", "up", "Boosting", "Carrying", "so", "rank", "competitive", "matches", "Buffed", "When", "something", "has", "been", "made", "game", "update", "if", "take", "Burst", "Fire", "Shooting", "bullets", "lots", "around", "3", "each", "time", "Being", "most", "valued", "mean", "win", "without", "their", "help", "Choking", "Failing", "under", "pressure", "Clutch", "person", "is", "last", "left", "he", "wins", "round", "Usually", "multiple", "enemies", "still", "alive", "Collateral", "two", "more", "single", "shot", "Deagle", "Desert", "Eagle", "Dinked", "Dualies", "Dual", "Berettas", "Eco", "Saving", "money", "little", "purchases", "boost", "s", "economy", "future", "rounds", "Entry", "Frag", "attempting", "over", "gets", "first", "kill", "Flashbang", "Another", "name", "flash", "grenade", "Force", "Buy", "strategy", "purchase", "weapons", "even", "one", "poor", "Jump", "Throw", "An", "action", "jumping", "throwing", "Lag", "delay", "reference", "server", "not", "receiving", "communication", "from", "computer", "via", "internet", "Lit", "Taken", "heavy", "damage", "leaving", "10", "health", "Molly", "nickname", "Molotov", "Incendiary", "Grenade", "Nade", "Stack", "Multiple", "through", "HE", "grenades", "spot", "any", "area", "Nerfed", "worse", "due", "gives", "disadvantage", "use", "No", "into", "Noob", "New", "One", "Deag", "Shot", "Pick", "Coming", "out", "killing", "Peek", "see", "another", "map", "check", "coming", "Pop", "Flash", "explodes", "before", "chance", "look", "away", "Pre", "Having", "crosshair", "be", "corner", "will", "peek", "fire", "Shotting", "soon", "turn", "smoke", "knowing", "there", "Pro", "Short", "term", "Professional", "Quickscope", "Scoping", "shooting", "instantly", "Retake", "Taking", "position", "after", "lost", "Rotate", "Moving", "object", "Save", "attempt", "hide", "save", "dying", "believes", "die", "engagement", "Scout", "SSG", "08", "Rifle", "Scrim", "practice", "between", "teams", "Shoulder", "Similar", "strafing", "but", "exposing", "shoulder", "quickly", "make", "shoot", "miss", "Smurf", "secondary", "account", "lower", "easier", "games", "Spamming", "non", "stop", "inaccurate", "Spinbot", "cheat", "used", "commonly", "Counter", "Strike", "Source", "spins", "consistently", "hard", "Split", "Push", "Attempting", "angles", "majority", "same", "Straffing", "right", "consistantly", "harder", "Swing", "further", "move", "part", "Used", "throw", "off", "people", "who", "pre", "Tagged", "taken", "small", "amount", "Toggling", "Turning", "hacks", "Triggerbot", "shoots", "Utility", "Items", "primary", "such", "zeus", "Wallbang", "Hitting", "wall", "antivirus", "software", "malware", "boot", "sector", "personal", "computer", "microsoft", "word", "home", "virus", "login", "macintosh", "windows", "the", "andromeda", "strain", "elk", "cloner", "nt", "payload", "floppy", "disk", "operating", "system", "logic", "bomb", "quine", "minicomputer", "cpu", "microcomputer", "motherboard", "vulnerability", "microprocessor", "hard", "drive", "income", "bios", "sabotage", "processor", "organism", "supercomputer", "compute", "pda", "laptop", "cybernetic", "mainframe", "assembler", "diplom", "outlook", "telnet", "vm", "creeper", "computable", "arpanet", "computational", "internet", "threat", "computerology", "hardware", "computerologist", "computerist", "computernik", "noncomputer", "nanocomputer", "teletype", "computerdom", "puter", "computeritis", "precomputer", "compy", "anticomputer", "neurocomputer", "hostmaster", "ibook", "peripheral", "machinima", "computerlike", "monitor", "security", "mac", "computerism", "gnome", "intranet", "computerbased", "computercide", "RELATED", "WORDS", "CONTINUE", "AFTER", "ADVERTISEMENT", "predictor", "softmodem", "telecomputer", "telecommuter", "cybersavvy", "cybersystem", "multinetworked", "multinetwork", "cyberjunkie", "screensaver", "cyber", "cybersociology", "computerize", "cyberterrorism", "cyberintrusion", "automation", "cybernetwork", "cyberinteraction", "pittsburgh", "computation", "imac", "cyberjargon", "appender", "self", "replication", "cybertechnology", "calculator", "misclick", "pc", "programmable", "netzine", "cyberpsychology", "flash", "drives", "downloader", "compunications", "clickless", "wardialer", "uploader", "pseudocode", "cyberphilosophy", "pessimize", "cybersuicide", "mouseclick", "fileserver", "cyberfuture", "cybernate", "brain", "cybergeneration", "pdp", "10", "touchpad", "lahore", "logon", "tops", "20", "biocomputing", "virtualize", "diskette", "cyberimmortality", "earom", "incrementor", "scancode", "hackathon", "uninstall", "westworld", "ambimoustrous", "memex", "sneakernet", "subroutine", "cyberdating", "dork", "extranet", "meatware", "techie", "metaprogramming", "teleprocessing", "graphician", "transputer", "sca", "sysadmin", "program", "videoterminal", "rootkit", "teleinstruction", "computerphone", "file", "multitask", "code", "injection", "digital", "central", "processing", "unit", "keystroke", "logging", "communication", "social", "engineering", "data", "converter", "wave", "clip", "checker", "organize", "information", "access", "in", "observatory", "turing", "machine", "chiclet", "keyboard", "dumb", "terminal", "ram", "denial", "of", "service", "attack", "aid", "design", "at", "cafe", "graphic", "card", "function", "analog", "artificial", "life", "surf", "process", "evolutionary", "algorithm", "escape", "key", "memory", "chip", "free", "stream", "video", "electronic", "device", "macro", "john", "von", "neumann", "web", "server", "download", "manager", "visual", "display", "virtual", "reality", "circuit", "desktop", "university", "dortmund", "killer", "poke", "two", "finger", "type", "monkey", "configuration", "section", "tv", "tuner", "polymorphic", "your", "room", "expansion", "slot", "exe", "readable", "bbn", "technologies", "command", "line", "interpreter", "spread", "superhighway", "input", "michael", "crichton", "database", "management", "do", "work", "picture", "alan", "oppenheimer", "window", "cursor", "log", "alpha", "test", "assistant", "utility", "control", "age", "skrenta", "write", "email", "path", "beta", "translation", "encryption", "mount", "lebanon", "high", "school", "add", "number", "science", "e", "transaction", "storm", "apple", "dos", "quiche", "eater", "p", "2", "technical", "support", "third", "screen", "main", "background", "mail", "fred", "cohen", "leonard", "adleman", "emulator", "compression", "j", "b", "gunn", "ibm", "compatible", "3", "0", "kilobyte", "api", "exploit", "vaccine", "ms", "95", "linux", "commodore", "amiga", "bliss", "live", "messenger", "forum", "ip", "address", "cryptovirology", "usenet", "downloading", "hoax", "trojan", "horse", "patch", "binary", "executables", "backup", "com", "files", "w32", "simile", "pdf", "interrupt", "handling", "flow", "phishing", "xp", "vitus", "scan", "attachment", "encephalitis", "meningitis", "hiv", "genome", "allergy", "pneumonia", "rna", "influenza", "corruption", "glitches", "infect", "melissa", "biochemistry", "aids", "parody", "interferon", "ovary", "incubator", "hydrophobia", "tremble", "trembles", "viral", "gag", "rabies", "poliomyelitis", "rheumatism", "madness", "polio", "compromising", "compromised", "compromise", "cold", "kuru", "prion", "quality", "antigen", "shampoo", "superuser", "chromosome", "competence", "dna", "macrophage", "rma", "sepsis", "tna", "drag", "case", "bug", "bugged", "worm", "master", "record", "heuristic", "disks", "cyclic", "redundancy", "check", "av", "cd", "cih", "essentials", "dvd", "portable", "executable", "malicious", "removal", "tool", "ntfs", "analysis", "cryptographic", "hash", "ransomware", "cmd", "vector", "shareware", "booting", "samy", "heuristics", "modem", "defender", "modifying", "exclusive", "or", "phagocyte", "neurotropic", "neuraminidase", "shellcode", "sheep", "tick", "cephalitis", "cjd", "aeroscope", "sterilizer", "provirus", "cyberchase", "phrenitis", "meme", "lyssa", "isopathy", "histoplasmosis", "assembly", "degerminator", "entheic", "fumatorium", "encephalomyelitis", "enterovirus", "bugging", "engine", "metamorphic", "language", "bootable", "virustotal", "anti", "open", "source", "environments", "yahoo", "update", "tuesday", "common", "vulnerabilities", "and", "exposures", "national", "signature", "random", "slag", "reye", "s", "syndrome", "creutzfeldt", "jakob", "disease", "restriction", "nuclease", "herpes", "simplex", "ixodes", "ricinus", "endonuclease", "infantile", "paralysis", "enzyme", "acute", "anterior", "rheumatoid", "arthritis", "atrophic", "zero", "day", "optical", "disc", "restore", "task", "cloning", "bulletin", "board", "7", "copyright", "infringement", "vista", "excel", "office", "me", "component", "object", "model", "uniform", "resource", "locator", "instant", "messaging", "cross", "site", "scripting", "safety", "scanner", "safe", "mode", "image", "removable", "media", "os", "Popular", "Searches", "energy", "fire", "forest", "psychology", "time", "art", "accessories", "archeology", "autumn", "australia", "alcohol", "animals", "aviation", "aboriginal", "astronomy", "belonging", "beach", "beauty", "buildings", "business", "biology", "books", "birds", "bees", "babies", "crime", "culture", "computers", "camping", "cooking", "crafts", "cube", "circus", "christmas", "dance", "desert", "democracy", "death", "dogs", "drama", "discovery", "dragons", "dream", "electricity", "easter", "entertainment", "emotions", "Words", "Related", "to", "viruses", "As", "you", "ve", "probably", "noticed", "words", "related", "are", "listed", "above", "According", "that", "this", "similarity", "top", "5", "for", "There", "458", "other", "similar", "Hopefully", "generated", "list", "suit", "needs", "P", "S", "some", "problems", "I", "m", "aware", "but", "can", "t", "currently", "fix", "because", "they", "out", "scope", "project", "The", "one", "is", "individual", "have", "many", "different", "senses", "meanings", "so", "when", "search", "a", "like", "mean", "doesn", "know", "which", "definition", "re", "referring", "bullies", "vs", "what", "etc", "consider", "query", "may", "be", "bit", "ambiguous", "sense", "terms", "returned", "reflect", "You", "might", "also", "wondering", "What", "Also", "on", "relatedwords", "io", "another", "associations", "runs", "several", "algorithms", "compete", "get", "their", "results", "higher", "One", "such", "uses", "embedding", "convert", "into", "dimensional", "vectors", "represent", "compared", "huge", "pre", "computed", "find", "Another", "crawls", "through", "Concept", "Net", "meaningful", "relationship", "with", "These", "more", "allows", "give", "rather", "than", "just", "direct", "synonyms"];
+						var words3 = ["cs", "hax", "csgo", "cs16", "minecraft", "spleef", "hop", "free", "dl", "client", "spoof", "account", "seige", "unknown", "undetected", "detected", "noob", "newb", "potato", "pro", "dll", "injector", "inject", "protect", "mp3", "mp4", "yt", "lc", "p4", "p3", "installer", "install", "visual", "geometry", "dash", "sc", "ratch", "valorant", "bot", "lucky", "snap", "chat", "insta", "gram", "win", "ject", "ghost", "vape", "weed", "juice", "gas", "bongs", "bong", "drugs", "drug", "DMT", "shop", "store", "terraria", "mods", "1", "2", "3", "4", "5", "6", "7", "8", "9", "mod", "modded", "modder", "nuke", "torrent", "pirate", "pirated", "soap", "tv", "tele", "TF2", "scope", "view", "anime", "manga", "stream", "streaming", "1g", "Killing", "yourself", "by", "accident", "with", "your", "very", "own", "molotov", "at", "the", "end", "of", "a", "match", "making", "team", "lose", "Just", "as", "Summit1g", "did", "it", "in", "professional", "DreamHack", "2016", "ADS", "Aiming", "Down", "Sight", "looking", "down", "scope", "weapon", "Aimbot", "A", "hack", "that", "aims", "an", "enemy", "player", "for", "you", "Aimpunch", "The", "aim", "movement", "on", "character", "when", "they", "are", "hit", "bullet", "have", "no", "armor", "Auto", "Shotty", "Nickname", "automatic", "XM", "1014", "Shotgun", "Sniper", "both", "G3SG1", "and", "Scar", "20", "Bait", "Using", "or", "someone", "else", "to", "get", "attention", "OR", "players", "come", "purpose", "while", "using", "location", "advantage", "Boost", "Letting", "stand", "head", "usually", "give", "them", "better", "angle", "higher", "up", "Boosting", "Carrying", "so", "rank", "competitive", "matches", "Buffed", "When", "something", "has", "been", "made", "game", "update", "if", "take", "Burst", "Fire", "Shooting", "bullets", "lots", "around", "3", "each", "time", "Being", "most", "valued", "mean", "win", "without", "their", "help", "Choking", "Failing", "under", "pressure", "Clutch", "person", "is", "last", "left", "he", "wins", "round", "Usually", "multiple", "enemies", "still", "alive", "Collateral", "two", "more", "single", "shot", "Deagle", "Desert", "Eagle", "Dinked", "Dualies", "Dual", "Berettas", "Eco", "Saving", "money", "little", "purchases", "boost", "s", "economy", "future", "rounds", "Entry", "Frag", "attempting", "over", "gets", "first", "kill", "Flashbang", "Another", "name", "flash", "grenade", "Force", "Buy", "strategy", "purchase", "weapons", "even", "one", "poor", "Jump", "Throw", "An", "action", "jumping", "throwing", "Lag", "delay", "reference", "server", "not", "receiving", "communication", "from", "computer", "via", "internet", "Lit", "Taken", "heavy", "damage", "leaving", "10", "health", "Molly", "nickname", "Molotov", "Incendiary", "Grenade", "Nade", "Stack", "Multiple", "through", "HE", "grenades", "spot", "any", "area", "Nerfed", "worse", "due", "gives", "disadvantage", "use", "No", "into", "Noob", "New", "One", "Deag", "Shot", "Pick", "Coming", "out", "killing", "Peek", "see", "another", "map", "check", "coming", "Pop", "Flash", "explodes", "before", "chance", "look", "away", "Pre", "Having", "crosshair", "be", "corner", "will", "peek", "fire", "Shotting", "soon", "turn", "smoke", "knowing", "there", "Pro", "Short", "term", "Professional", "Quickscope", "Scoping", "shooting", "instantly", "Retake", "Taking", "position", "after", "lost", "Rotate", "Moving", "object", "Save", "attempt", "hide", "save", "dying", "believes", "die", "engagement", "Scout", "SSG", "08", "Rifle", "Scrim", "practice", "between", "teams", "Shoulder", "Similar", "strafing", "but", "exposing", "shoulder", "quickly", "make", "shoot", "miss", "Smurf", "secondary", "account", "lower", "easier", "games", "Spamming", "non", "stop", "inaccurate", "Spinbot", "cheat", "used", "commonly", "Counter", "Strike", "Source", "spins", "consistently", "hard", "Split", "Push", "Attempting", "angles", "majority", "same", "Straffing", "right", "consistantly", "harder", "Swing", "further", "move", "part", "Used", "throw", "off", "people", "who", "pre", "Tagged", "taken", "small", "amount", "Toggling", "Turning", "hacks", "Triggerbot", "shoots", "Utility", "Items", "primary", "such", "zeus", "Wallbang", "Hitting", "wall", "antivirus", "software", "malware", "boot", "sector", "personal", "computer", "microsoft", "word", "home", "virus", "login", "macintosh", "windows", "the", "andromeda", "strain", "elk", "cloner", "nt", "payload", "floppy", "disk", "operating", "system", "logic", "bomb", "quine", "minicomputer", "cpu", "microcomputer", "motherboard", "vulnerability", "microprocessor", "hard", "drive", "income", "bios", "sabotage", "processor", "organism", "supercomputer", "compute", "pda", "laptop", "cybernetic", "mainframe", "assembler", "diplom", "outlook", "telnet", "vm", "creeper", "computable", "arpanet", "computational", "internet", "threat", "computerology", "hardware", "computerologist", "computerist", "computernik", "noncomputer", "nanocomputer", "teletype", "computerdom", "puter", "computeritis", "precomputer", "compy", "anticomputer", "neurocomputer", "hostmaster", "ibook", "peripheral", "machinima", "computerlike", "monitor", "security", "mac", "computerism", "gnome", "intranet", "computerbased", "computercide", "RELATED", "WORDS", "CONTINUE", "AFTER", "ADVERTISEMENT", "predictor", "softmodem", "telecomputer", "telecommuter", "cybersavvy", "cybersystem", "multinetworked", "multinetwork", "cyberjunkie", "screensaver", "cyber", "cybersociology", "computerize", "cyberterrorism", "cyberintrusion", "automation", "cybernetwork", "cyberinteraction", "pittsburgh", "computation", "imac", "cyberjargon", "appender", "self", "replication", "cybertechnology", "calculator", "misclick", "pc", "programmable", "netzine", "cyberpsychology", "flash", "drives", "downloader", "compunications", "clickless", "wardialer", "uploader", "pseudocode", "cyberphilosophy", "pessimize", "cybersuicide", "mouseclick", "fileserver", "cyberfuture", "cybernate", "brain", "cybergeneration", "pdp", "10", "touchpad", "lahore", "logon", "tops", "20", "biocomputing", "virtualize", "diskette", "cyberimmortality", "earom", "incrementor", "scancode", "hackathon", "uninstall", "westworld", "ambimoustrous", "memex", "sneakernet", "subroutine", "cyberdating", "dork", "extranet", "meatware", "techie", "metaprogramming", "teleprocessing", "graphician", "transputer", "sca", "sysadmin", "program", "videoterminal", "rootkit", "teleinstruction", "computerphone", "file", "multitask", "code", "injection", "digital", "central", "processing", "unit", "keystroke", "logging", "communication", "social", "engineering", "data", "converter", "wave", "clip", "checker", "organize", "information", "access", "in", "observatory", "turing", "machine", "chiclet", "keyboard", "dumb", "terminal", "ram", "denial", "of", "service", "attack", "aid", "design", "at", "cafe", "graphic", "card", "function", "analog", "artificial", "life", "surf", "process", "evolutionary", "algorithm", "escape", "key", "memory", "chip", "free", "stream", "video", "electronic", "device", "macro", "john", "von", "neumann", "web", "server", "download", "manager", "visual", "display", "virtual", "reality", "circuit", "desktop", "university", "dortmund", "killer", "poke", "two", "finger", "type", "monkey", "configuration", "section", "tv", "tuner", "polymorphic", "your", "room", "expansion", "slot", "exe", "readable", "bbn", "technologies", "command", "line", "interpreter", "spread", "superhighway", "input", "michael", "crichton", "database", "management", "do", "work", "picture", "alan", "oppenheimer", "window", "cursor", "log", "alpha", "test", "assistant", "utility", "control", "age", "richard", "skrenta", "write", "email", "path", "beta", "translation", "encryption", "mount", "lebanon", "high", "school", "add", "number", "science", "e", "transaction", "storm", "apple", "dos", "quiche", "eater", "p", "2", "technical", "support", "third", "screen", "main", "background", "mail", "fred", "cohen", "leonard", "adleman", "emulator", "compression", "j", "b", "gunn", "ibm", "compatible", "3", "0", "kilobyte", "api", "exploit", "vaccine", "ms", "95", "linux", "commodore", "amiga", "bliss", "live", "messenger", "forum", "ip", "address", "cryptovirology", "usenet", "downloading", "hoax", "trojan", "horse", "patch", "binary", "executables", "backup", "com", "files", "w32", "simile", "pdf", "interrupt", "handling", "flow", "phishing", "xp", "vitus", "scan", "attachment", "encephalitis", "meningitis", "hiv", "genome", "allergy", "pneumonia", "rna", "influenza", "corruption", "glitches", "infect", "melissa", "biochemistry", "aids", "parody", "interferon", "ovary", "incubator", "hydrophobia", "tremble", "trembles", "viral", "gag", "rabies", "poliomyelitis", "rheumatism", "madness", "polio", "compromising", "compromised", "compromise", "cold", "kuru", "prion", "quality", "antigen", "shampoo", "superuser", "chromosome", "competence", "dna", "macrophage", "rma", "sepsis", "tna", "drag", "case", "bug", "bugged", "worm", "master", "record", "heuristic", "disks", "cyclic", "redundancy", "check", "av", "cd", "cih", "essentials", "dvd", "portable", "executable", "malicious", "removal", "tool", "ntfs", "analysis", "cryptographic", "hash", "ransomware", "cmd", "vector", "shareware", "booting", "samy", "heuristics", "modem", "defender", "modifying", "exclusive", "or", "phagocyte", "neurotropic", "neuraminidase", "shellcode", "sheep", "tick", "cephalitis", "cjd", "aeroscope", "sterilizer", "provirus", "cyberchase", "phrenitis", "meme", "lyssa", "isopathy", "histoplasmosis", "assembly", "degerminator", "entheic", "fumatorium", "encephalomyelitis", "enterovirus", "bugging", "engine", "metamorphic", "language", "bootable", "virustotal", "anti", "open", "source", "environments", "yahoo", "update", "tuesday", "common", "vulnerabilities", "and", "exposures", "national", "signature", "random", "slag", "reye", "s", "syndrome", "creutzfeldt", "jakob", "disease", "restriction", "nuclease", "herpes", "simplex", "ixodes", "ricinus", "endonuclease", "infantile", "paralysis", "enzyme", "acute", "anterior", "rheumatoid", "arthritis", "atrophic", "zero", "day", "optical", "disc", "restore", "task", "cloning", "bulletin", "board", "7", "copyright", "infringement", "vista", "excel", "office", "me", "component", "object", "model", "uniform", "resource", "locator", "instant", "messaging", "cross", "site", "scripting", "safety", "scanner", "safe", "mode", "image", "removable", "media", "os", "Popular", "Searches", "energy", "fire", "forest", "psychology", "time", "art", "accessories", "archeology", "autumn", "australia", "alcohol", "animals", "aviation", "aboriginal", "astronomy", "belonging", "beach", "beauty", "buildings", "business", "biology", "books", "birds", "bees", "babies", "crime", "culture", "computers", "camping", "cooking", "crafts", "cube", "circus", "christmas", "dance", "desert", "democracy", "death", "dogs", "drama", "discovery", "dragons", "dream", "electricity", "easter", "entertainment", "emotions", "Words", "Related", "to", "viruses", "As", "you", "ve", "probably", "noticed", "words", "related", "are", "listed", "above", "According", "that", "this", "similarity", "top", "5", "for", "There", "458", "other", "similar", "Hopefully", "generated", "list", "suit", "needs", "P", "S", "some", "problems", "I", "m", "aware", "but", "can", "t", "currently", "fix", "because", "they", "out", "scope", "project", "The", "one", "is", "individual", "have", "many", "different", "senses", "meanings", "so", "when", "search", "a", "like", "mean", "doesn", "know", "which", "definition", "re", "referring", "bullies", "vs", "what", "etc", "consider", "query", "may", "be", "bit", "ambiguous", "sense", "terms", "returned", "reflect", "You", "might", "also", "wondering", "What", "Also", "on", "relatedwords", "io", "another", "associations", "runs", "several", "algorithms", "compete", "get", "their", "results", "higher", "One", "such", "uses", "embedding", "convert", "into", "dimensional", "vectors", "represent", "compared", "huge", "pre", "computed", "find", "Another", "crawls", "through", "Concept", "Net", "meaningful", "relationship", "with", "These", "more", "allows", "give", "rather", "than", "just", "direct", "synonyms"];
+
+  var randomWord1 = words[Math.floor(Math.random() * words.length)];
+  var randomWord2 = words[Math.floor(Math.random() * words.length)];
+
+  var url = "https://www." + randomWord1 + randomWord2 + ".com";
+
+  fetch(url)
+    .then(function(response) {
+      if (response.ok) {
+        window.open(url, "_blank");
+      } else {
+        var failedURLsList = document.getElementById("failed-urls-list");
+        var listItem = document.createElement("li");
+        var listItemText = document.createTextNode(url);
+        listItem.appendChild(listItemText);
+        failedURLsList.appendChild(listItem);
+        setTimeout(generateAndTestURL, 1000); // wait 1 second before trying again
+      }
+    })
+    .catch(function(error) {
+      var failedURLsList = document.getElementById("failed-urls-list");
+      var listItem = document.createElement("li");
+      var listItemText = document.createTextNode(url);
+      listItem.appendChild(listItemText);
+      failedURLsList.appendChild(listItem);
+      setTimeout(generateAndTestURL, 1000); // wait 1 second before trying again
+    });
+}
+    </script>
+      
+  
+
+//moving imahge guy script
+     <script>
+      function getRandomLeft() {
+        return Math.floor(Math.random() * 1350) + 100;
+      }
+
+       
+
+      window.onload = function() { 
+        var overlay = document.querySelector('.overlay');
+        setInterval(function() {
+          overlay.style.left = getRandomLeft() + 'px';
+        
+        }, 2500); // repeat every 5 seconds
+      };
+    </script>
+
+  	
+</head>
+  
+<IMG SRC="RaFrog.jpg" style="width:250px;height:250px;" class="overlay2">
+
+  <IMG SRC="xmas-lights.gif" style="width:1250px;height:250px;" class="overlay3">
+
+   <IMG SRC="xmas-lights.gif" style="width:1250px;height:250px;" class="overlay4">
+
+  
+   <a href="https://soundcloud.com/user-651896669/sets/playlist-by-www-ahmd-world-1" target="_blank">
+     <h1 class="overlay5" style="color:brown;font-family: Arial;"> Click here for a 24/7 gaming radio </h1>
+   </a>
+  
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  
+<body style="background-image: url('Back.gif');" onclick="teleportAndFadeOutImage(event);">
+
+<span class="taller"> The DKG Website </span>
+    <br>
+  <br>
+    <br>
+  <br>
+    <br>
+  <br>
+  
+  <a href="White\White.html" target="_blank">
+<IMG SRC="3dgifmaker66485.gif" style="width:250px;height:250px;">
+  </a>
+  <a href="Tummy\Tummy.html" target="_blank">
+  <IMG SRC="3dgifmaker12496.gif" style="width:250px;height:250px;">
+  </a>
+   <a href="Reps\Reps.html" target="_blank">
+   <IMG SRC="3dgifmaker87386.gif" style="width:250px;height:250px;">
+   </a>
+  <br>
+
+    <img src="Space.png" class="overlay" style="width:78px;height:78px;>
+  
+  <a href="https://www.youtube.com/playlist?list=PLcHnukBtSuA4zdFhfJnnDjBO20Y0PHD2R" target="_blank">
+ <span class="Funger">  Check out the DanTDM Series </span>
+     </a>
+    <h2>____Preview:</h2>
+  
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/Fbktag-X_VE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+    <button onclick="generateAndTestURL()" class="overlay6" style=background-color:DarkGoldenRod;border-bottom-color:White;>Begin the Webstie Challenge (enable popups)</button>
+    <ul id="failed-urls-list" class="overlay7" style=color:gold;></ul>
+	
+	<h1 style=color:gold;background-color:blue; class="overlay6"> if it stops working, press again <h1>
+	
+	<a href="https://docs.google.com/document/d/1uNF3z8F5Ga3mHQP53QtnydznWosIoFCtIqlqStbMJpM/edit" target="_blank">
+		<img class="fixed-image" src="ZeniminZ.png" alt="Fixed Image">
+		</a>
+		
+			<a href="https://scottgames.com/" target="_blank">
+		<img class="fixed-image2" src="Scott.png" alt="Fixed Image">
+		</a>
+</body>
+
+</html>
