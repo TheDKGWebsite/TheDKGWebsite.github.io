@@ -159,7 +159,7 @@
 	
 	
 	//randm yt vide
-	    <script>
+    <script>
         function generateRandomId(length) {
             var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var id = "";
@@ -173,7 +173,7 @@
             var randomVideoId = generateRandomId(11);
 
             var videoPlayer = document.getElementById("videoPlayer");
-            videoPlayer.src = "https://www.youtube.com/embed/" + randomVideoId;
+            videoPlayer.src = "https://www.youtube.com/embed/" + randomVideoId + "?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1";
         }
 
         window.addEventListener('DOMContentLoaded', playRandomVideo);
