@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DKG Website</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .content {
+      text-align: center;
+      font-size: 48px;
+      transition: all 0.3s ease-in-out;
+    }
+	
+.image-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var fonts = ['Arial', 'Helvetica', 'Verdana', 'Times New Roman', 'Courier New', 'Impact', 'Georgia'];
+      var previousIndex = -1;
+      var previousWidth = 100;
+      var minWidth = 150;
+      var maxWidth = 320;
+      var languages = [
+        'en', 'es', 'fr', 'de', 'it', 'pt', 'ar', 'ja', 'ko', 'zh', 'hi', 'ru', 'tr', 'nl', 'sv', 'pl',
+        'vi', 'id', 'fi', 'no', 'da', 'th', 'cs', 'ro', 'hu', 'el', 'he', 'bg', 'uk', 'ca', 'hr', 'sr',
+        'sl', 'sk', 'lt', 'lv', 'et', 'mk', 'sq', 'fa', 'ur', 'bn', 'sw', 'ta', 'te', 'mr', 'kn', 'gu',
+        'ml', 'pa', 'ne', 'si', 'my', 'km', 'lo', 'am', 'iu', 'chr', 'ms', 'fil', 'jv', 'sw', 'yo', 'ha',
+        'ig', 'zu', 'xh', 'ceb', 'so', 'sn', 'rw', 'st', 'tn', 'ny', 'ee', 'wo', 'lg', 'am', 'ti', 'ks',
+        'sd', 'ps', 'ug', 'bo', 'dz', 'my', 'km', 'lo', 'ka'
+      ];
+      
+      function getRandomLanguage() {
+        return languages[Math.floor(Math.random() * languages.length)];
+      }
+      
+      setInterval(function() {
+        var currentIndex;
+        do {
+          currentIndex = Math.floor(Math.random() * fonts.length);
+        } while (currentIndex === previousIndex);
+        
+        previousIndex = currentIndex;
+        var selectedFont = fonts[currentIndex];
+        document.querySelector('.content').style.fontFamily = selectedFont;
+        
+        var currentWidth;
+        do {
+          currentWidth = Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+        } while (currentWidth === previousWidth);
+        
+        previousWidth = currentWidth;
+        document.querySelector('.content').style.transform = `scaleX(${currentWidth / 100})`;
+        
+        if (Math.random() < 0.83) {
+          var currentLanguage = getRandomLanguage();
+          var translationUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${currentLanguage}&dt=t&q=DKG%20Website`;
+          fetch(translationUrl)
+            .then(response => response.json())
+            .then(data => {
+              var translatedText = data[0][0][0];
+              document.querySelector('.content').textContent = translatedText;
+            })
+            .catch(error => {
+              console.log('Translation error:', error);
+            });
+        } else {
+          document.querySelector('.content').textContent = 'DKG Website';
+        }
+      }, 150);
+    });
+
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowUp') {
+        window.location.href = 'News/News.html'; // Replace with the desired website URL
+      } else if (event.key === 'ArrowRight') {
+        window.location.href = 'https://example2.com'; // Replace with the desired website URL
+      } else if (event.key === 'ArrowDown') {
+        window.location.href = 'https://example3.com'; // Replace with the desired website URL
+      } else if (event.key === 'ArrowLeft') {
+        window.location.href = 'https://example4.com'; // Replace with the desired website URL
+      }
+    });
+  </script>
+</head>
+<body>
+	  <div class="content" style="color: #11a10e;">
+    <h1>DKG Website</h1>
+
+  </div>
+ 	   <div class="image-container">
+    <img src="pick.png" alt="Image">
+
+  </div>
+
+
+</body>
+</html>
